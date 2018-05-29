@@ -1,0 +1,26 @@
+type User {
+  id: Long!
+  username: String!
+  password: String!
+  firstname: String
+  lastname: String
+  email: String
+}
+
+type Query {
+  findAllUsers : [User]!
+}
+
+type SigninPayload {
+  token: String
+  user: User
+}
+
+input AuthData {
+      username: String!
+      password: String!
+}
+
+type Mutation {
+  signinUser(auth: AuthData): SigninPayload
+}
